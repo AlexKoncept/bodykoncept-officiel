@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Koncept - Votre Coach Sportif Intelligent</title>
+
+    <!-- MODIFICATION FINALE : Méta-tags pour le partage sur les réseaux sociaux -->
+    <meta property="og:title" content="Body Koncept - Votre Coach Sportif Intelligent">
+    <meta property="og:description" content="Découvrez l'entraînement personnalisé par IA qui s'adapte à vos objectifs, votre morphologie et votre mode de vie.">
+    <!-- Remplacez par l'URL de l'image que vous voulez voir apparaître lors du partage -->
+    <meta property="og:image" content="URL_VERS_VOTRE_IMAGE_DE_PARTAGE.webp"> 
+    <!-- Remplacez par l'URL de votre site une fois en ligne -->
+    <meta property="og:url" content="URL_DE_VOTRE_SITE_EN_LIGNE">
+    <meta property="og:type" content="website">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        /* Définition des polices */
+        @font-face {
+            font-family: 'Inter';
+            src: url('fonts/Inter-Regular.ttf') format('truetype');
+            font-weight: normal;
+        }
+        @font-face {
+            font-family: 'Inter';
+            src: url('fonts/Inter-Medium.ttf') format('truetype');
+            font-weight: 500;
+        }
+        @font-face {
+            font-family: 'Inter';
+            src: url('fonts/Inter-Bold.ttf') format('truetype');
+            font-weight: bold;
+        }
+
+        /* --- Variables de Couleur --- */
+        :root {
+            --primary-cyan: #00e6ff;
+            --dark-bg: #121212;
+            --dark-card: #1e1e1e;
+            --text-white: #ffffff;
+            --text-light: #e0e0e0;
+            --text-gray: #a0a0a0;
+            --border-dark: rgba(255, 255, 255, 0.1);
+            --light-bg: #f4f7f9;
+            --light-card: #ffffff;
+            --light-text-dark: #1c1c1c;
+            --light-text-gray: #555555;
+            --border-light: rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Styles de base --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 0 80px;
+        }
+        
+        .highlight { color: var(--primary-cyan); }
+        .koncept { color: var(--primary-cyan); }
+        .body { transition: color 0.3s ease; }
+
+        /* --- Gestion des Thèmes --- */
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-white);
+        }
+        .body { color: var(--text-white); }
+        nav a { color: var(--text-light); }
+        header { background-color: rgba(18, 18, 18, 0.9); border-bottom-color: var(--border-dark); }
+        .card { background: var(--dark-card); border: 1px solid var(--border-dark); }
+        .card-description { color: var(--text-gray); }
+        footer { border-top: 1px solid var(--border-dark); }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); color: var(--text-gray); }
+        .lang-select { background: transparent; color: var(--text-light); border: 1px solid var(--border-dark); }
+        .lang-select option { background: var(--dark-bg); color: var(--text-light); }
+        .hamburger { color: var(--text-white); }
+        nav ul.active { background-color: var(--dark-bg); }
+
+        body[data-theme="light"] {
+            background-color: var(--light-bg);
+            color: var(--light-text-dark);
+        }
+        body[data-theme="light"] .body { color: var(--light-text-dark); }
+        body[data-theme="light"] nav a { color: var(--light-text-gray); }
+        body[data-theme="light"] nav a:hover { color: var(--primary-cyan); }
+        body[data-theme="light"] header { background-color: rgba(255, 255, 255, 0.9); border-bottom-color: var(--border-light); }
+        body[data-theme="light"] .card { background: var(--light-card); border: 1px solid var(--border-light); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        body[data-theme="light"] .card-title { color: var(--light-text-dark); }
+        body[data-theme="light"] .card-description { color: var(--light-text-gray); }
+        body[data-theme="light"] footer { border-top-color: var(--border-light); }
+        body[data-theme="light"] .footer-bottom { border-top-color: rgba(0, 0, 0, 0.05); color: var(--light-text-gray); }
+        body[data-theme="light"] .lang-select { color: var(--light-text-dark); border-color: var(--border-light); }
+        body[data-theme="light"] .lang-select option { background: var(--light-bg); color: var(--light-text-dark); }
+        body[data-theme="light"] .hamburger { color: var(--light-text-dark); }
+        body[data-theme="light"] nav ul.active { background-color: var(--light-bg); }
+
+
+        /* --- Header --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .header-container { display: flex; justify-content: space-between; align-items: center; }
+        
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { height: 40px; }
+
+        .logo-text { font-weight: bold; font-size: 28px; }
+        nav ul { display: flex; list-style: none; gap: 40px; align-items: center; }
+        nav a { text-decoration: none; font-size: 18px; font-weight: 500; transition: color 0.3s ease; }
+        .header-actions { display: flex; align-items: center; gap: 20px; }
+
+        /* --- Theme Toggle Switch --- */
+        .theme-switch { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+        .theme-switch i { font-size: 22px; transition: color 0.3s ease, opacity 0.3s ease; }
+        .theme-switch-toggle { position: relative; width: 50px; height: 26px; background: #333; border-radius: 13px; transition: background 0.3s ease; }
+        .theme-switch-toggle::before { content: ''; position: absolute; top: 3px; left: 4px; width: 20px; height: 20px; background: white; border-radius: 50%; transition: transform 0.3s ease; }
+        
+        body[data-theme="light"] .theme-switch-toggle { background: var(--primary-cyan); }
+        body[data-theme="light"] .theme-switch-toggle::before { transform: translateX(23px); }
+
+        .theme-switch .ri-sun-line { opacity: 0.5; }
+        .theme-switch .ri-moon-line { color: var(--primary-cyan); }
+
+        body[data-theme="light"] .theme-switch .ri-moon-line { opacity: 0.5; color: inherit; }
+        body[data-theme="light"] .theme-switch .ri-sun-line { opacity: 1; color: var(--primary-cyan); }
+
+
+        /* --- Language Selector --- */
+        .lang-select { border-radius: 5px; padding: 5px; font-size: 16px; cursor: pointer; }
+        
+        /* --- Hero Section --- */
+        .hero { padding: 180px 0 100px; }
+        .hero-content { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 60px;
+        }
+        .hero-text { flex-basis: 50%; }
+        .hero-title { font-weight: bold; font-size: 64px; }
+        .hero-subtitle { font-size: 24px; margin-bottom: 40px; max-width: 600px; }
+        .cta-button { display: inline-block; background: linear-gradient(90deg, var(--primary-cyan) 0%, #0099cc 100%); color: #121212; font-weight: bold; font-size: 18px; padding: 15px 40px; border-radius: 30px; text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(0, 230, 255, 0.4); }
+        
+        .hero-image { 
+            flex-basis: 22.5%; 
+            perspective: 1200px;
+        }
+        
+        .app-screenshot { 
+            width: 100%; 
+            border-radius: 30px; 
+            box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5); 
+            animation: swing 4s ease-in-out infinite alternate;
+            transition: transform 0.5s ease;
+        }
+        
+        @keyframes swing {
+            from {
+                transform: rotateY(-18deg) rotateX(6deg) translateY(-5px) rotateZ(-1deg);
+            }
+            to {
+                transform: rotateY(-18deg) rotateX(6deg) translateY(5px) rotateZ(-1deg);
+            }
+        }
+        
+        .app-screenshot:hover {
+            animation-play-state: paused;
+            transform: rotateY(0) rotateX(0) translateY(-10px) scale(1.05);
+        }
+        
+        /* --- Sections Communes --- */
+        section { padding: 120px 0; overflow: hidden; }
+        .section-title { font-weight: bold; font-size: 48px; margin-bottom: 60px; text-align: center; }
+        
+        /* --- Concept Section --- */
+        .concept-philosophy { font-size: 32px; font-weight: 500; padding: 30px; border-radius: 15px; text-align: center; max-width: 1000px; margin: 0 auto 40px; }
+        .concept-description { font-size: 20px; max-width: 800px; margin: 0 auto; text-align: center; }
+        
+        /* --- Features Section --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .card { border-radius: 20px; padding: 40px 30px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary-cyan); }
+        .card-icon { font-size: 36px; color: var(--primary-cyan); margin-bottom: 20px; }
+        .card-title { font-size: 24px; font-weight: bold; margin-bottom: 15px; }
+
+        /* --- Technologies Section --- */
+        .tech-container { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            gap: 40px; 
+        }
+        .tech-image { 
+            flex-basis: 22.5%;
+            perspective: 1200px;
+        }
+
+        .tech-screenshot { 
+            width: 100%; 
+            border-radius: 20px; 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            animation: swing-reverse 4s ease-in-out infinite alternate;
+            transition: transform 0.5s ease;
+        }
+
+        @keyframes swing-reverse {
+            from {
+                transform: rotateY(18deg) rotateX(6deg) translateY(-5px) rotateZ(1deg);
+            }
+            to {
+                transform: rotateY(18deg) rotateX(6deg) translateY(5px) rotateZ(1deg);
+            }
+        }
+
+        .tech-screenshot:hover {
+            animation-play-state: paused;
+            transform: rotateY(0) rotateX(0) translateY(-10px) scale(1.05);
+        }
+
+        .tech-content { 
+            flex-basis: 50%; 
+            text-align: center;
+        }
+        .tech-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; margin-top: 40px; }
+        .tech-item { display: flex; align-items: center; gap: 15px; }
+        .tech-item-icon { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-cyan) 0%, #0099cc 100%); display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--dark-bg); flex-shrink: 0; }
+        
+        /* --- For Who Section --- */
+        .audience-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .audience-card { text-align: center; }
+
+        /* --- Footer --- */
+        footer { padding: 80px 0 40px; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; flex-wrap: wrap; gap: 30px; }
+        .footer-logo-text { font-weight: bold; font-size: 32px; }
+        .footer-links { display: flex; gap: 40px; flex-wrap: wrap; align-items: center; }
+        
+        .footer-links a {
+            text-decoration: none;
+            transition: color 0.3s ease, opacity 0.3s ease;
+        }
+        .footer-links a:first-child {
+            color: var(--text-light);
+        }
+        .footer-links a:first-child:hover {
+            color: var(--primary-cyan);
+        }
+        /* MODIFICATION : Le bouton CTA réutilise les styles existants, pas besoin de règle spécifique */
+        body[data-theme="light"] .footer-links a:first-child {
+            color: var(--light-text-gray);
+        }
+
+        .footer-bottom { text-align: center; padding-top: 40px; }
+
+        /* --- Hamburger Menu for Mobile --- */
+        .hamburger { display: none; font-size: 30px; cursor: pointer; background: none; border: none; }
+        
+        /* --- Animations --- */
+        .animated { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .animated.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 1024px) {
+            .container { padding: 0 40px; }
+            .hero { padding: 140px 0 80px; text-align: center; }
+            .hero-content { flex-direction: column; }
+            .hero-text { order: 2; }
+            .hero-image { 
+                order: 1; 
+                margin-bottom: 40px; 
+                width: 35%; 
+            }
+            .hero-title { font-size: 52px; }
+            .hero-subtitle { font-size: 20px; margin: 0 auto 40px auto; }
+            .tech-container { flex-direction: column; text-align: center; }
+            .tech-image { width: 35%; margin: 0 auto 40px auto; }
+            .tech-image:last-of-type {
+                display: none;
+            }
+            .tech-content { margin-top: 40px; }
+            .section-title { font-size: 40px; }
+            .features-grid, .audience-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .hamburger { display: block; z-index: 1001;}
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                padding-top: 80px;
+                gap: 20px;
+                align-items: center;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            nav ul.active {
+                display: flex;
+                transform: translateX(0);
+            }
+            nav li { text-align: center; width: 100%; }
+            nav a { font-size: 24px; }
+
+            .footer-content { flex-direction: column; text-align: center; }
+            .footer-links { justify-content: center; }
+
+            .features-grid, .audience-cards, .tech-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="logo.png" alt="Body Koncept Logo" class="logo-icon">
+                <div class="logo-text"><span class="body">Body</span><span class="koncept">Koncept</span></div>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home" data-lang-key="nav_home">Accueil</a></li>
+                    <li><a href="#concept" data-lang-key="nav_concept">Concept</a></li>
+                    <li><a href="#features" data-lang-key="nav_features">Fonctionnalités</a></li>
+                    <li><a href="#technologies" data-lang-key="nav_technologies">Technologies</a></li>
+                    <li><a href="#for-who" data-lang-key="nav_for_who">Pour Qui</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="theme-switch" id="theme-switcher">
+                    <i class="ri-moon-line"></i>
+                    <div class="theme-switch-toggle"></div>
+                    <i class="ri-sun-line"></i>
+                </div>
+                <select id="lang-selector" class="lang-select">
+                    <option value="fr">FR</option>
+                    <option value="en">EN</option>
+                </select>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero animated">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title" data-lang-key="hero_title">
+                        <span class="body">Body</span><span class="koncept">Koncept</span><br>
+                        Votre Coach Sportif Intelligent
+                    </h1>
+                    <p class="hero-subtitle" data-lang-key="hero_subtitle">
+                        Découvrez l'entraînement personnalisé par intelligence artificielle qui s'adapte parfaitement à vos objectifs, votre morphologie et votre mode de vie.
+                    </p>
+                    <!-- MODIFICATION FINALE : Texte du bouton -->
+                    <a href="https://bodykonceptbyalexkoncept.netlify.app/" class="cta-button" data-lang-key="hero_cta">Accéder à l'application</a>
+                </div>
+                <div class="hero-image">
+                    <img src="Capture2.webp" alt="Body Koncept App" class="app-screenshot">
+                </div>
+            </div>
+        </section>
+
+        <!-- Concept Section -->
+        <section id="concept" class="concept animated">
+            <div class="container">
+                <h2 class="section-title" data-lang-key="concept_title">Notre Concept</h2>
+                <div class="concept-content">
+                    <p class="concept-philosophy card" data-lang-key="concept_philosophy">
+                        "Chaque individu est unique. Son entraînement et sa nutrition doivent l'être aussi."
+                    </p>
+                    <p class="concept-description" data-lang-key="concept_description">
+                        <span class="body">Body</span><span class="koncept">Koncept</span> est né d'une vision simple mais révolutionnaire : utiliser l'intelligence artificielle pour créer des programmes d'entraînement et de nutrition véritablement personnalisés. Notre technologie analyse vos caractéristiques uniques pour vous offrir un accompagnement sur mesure, comme si vous aviez un coach personnel disponible 24/7.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features animated">
+            <div class="container">
+                <h2 class="section-title" data-lang-key="features_title">Fonctionnalités</h2>
+                <div class="features-grid">
+                    <div class="feature-card card">
+                        <div class="card-icon"><i class="ri-file-chart-line"></i></div>
+                        <h3 class="card-title" data-lang-key="feature1_title">Analyse d'Objectifs Détaillée</h3>
+                        <p class="card-description" data-lang-key="feature1_desc">Calcul précis de votre TDEE et analyse de votre morphotype pour des recommandations parfaitement adaptées.</p>
+                    </div>
+                    <div class="feature-card card">
+                        <div class="card-icon"><i class="ri-restaurant-line"></i></div>
+                        <h3 class="card-title" data-lang-key="feature2_title">Plans Nutritionnels Sur-Mesure</h3>
+                        <p class="card-description" data-lang-key="feature2_desc">Générateur intelligent de plans alimentaires qui s'adapte à vos préférences, allergies et objectifs.</p>
+                    </div>
+                    <div class="feature-card card">
+                        <div class="card-icon"><i class="ri-calendar-check-line"></i></div>
+                        <h3 class="card-title" data-lang-key="feature3_title">Programmes d'Entraînement Intelligents</h3>
+                        <p class="card-description" data-lang-key="feature3_desc">Créez des programmes optimisés selon votre niveau, équipement disponible et objectifs, avec progression intelligente.</p>
+                    </div>
+                     <div class="feature-card card">
+                        <div class="card-icon"><i class="ri-line-chart-line"></i></div>
+                        <h3 class="card-title" data-lang-key="feature4_title">Suivi Visuel des Progrès</h3>
+                        <p class="card-description" data-lang-key="feature4_desc">Visualisez votre évolution grâce à des graphiques intuitifs et des comparaisons avant/après pour rester motivé.</p>
+                    </div>
+                    <div class="feature-card card">
+                        <div class="card-icon"><i class="ri-tools-line"></i></div>
+                        <h3 class="card-title" data-lang-key="feature5_title">Boîte à Outils Sportives</h3>
+                        <p class="card-description" data-lang-key="feature5_desc">Accédez à une collection complète de calculatrices sportives pour optimiser votre alimentation et récupération.</p>
+                    </div>
+                    <div class="feature-card card">
+                        <div class="card-icon"><i class="ri-message-3-line"></i></div>
+                        <h3 class="card-title" data-lang-key="feature6_title">Coach IA Conversationnel 24/7</h3>
+                        <p class="card-description" data-lang-key="feature6_desc">Posez vos questions à tout moment à notre coach IA qui vous répond instantanément avec des conseils personnalisés.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies Section -->
+        <section id="technologies" class="technologies animated">
+            <div class="container tech-container">
+                <div class="tech-image">
+                    <!-- MODIFICATION FINALE : Lazy loading -->
+                    <img src="capture1.webp" alt="Technologies" class="tech-screenshot" loading="lazy">
+                </div>
+                <div class="tech-content">
+                    <h2 class="section-title" data-lang-key="tech_title">Technologies</h2>
+                    <p class="concept-description" data-lang-key="tech_desc">
+                        <span class="body">Body</span><span class="koncept">Koncept</span> utilise les technologies les plus modernes pour vous offrir une expérience utilisateur fluide et performante.
+                    </p>
+                    <div class="tech-list">
+                        <div class="tech-item"><div class="tech-item-icon"><i class="ri-reactjs-line"></i></div><span data-lang-key="tech1">React + Vite</span></div>
+                        <div class="tech-item"><div class="tech-item-icon"><i class="ri-smartphone-line"></i></div><span data-lang-key="tech2">Progressive Web App</span></div>
+                        <div class="tech-item"><div class="tech-item-icon"><i class="ri-contrast-2-line"></i></div><span data-lang-key="tech3">Thèmes Clair/Sombre</span></div>
+                        <div class="tech-item"><div class="tech-item-icon"><i class="ri-global-line"></i></div><span data-lang-key="tech4">Multilingue (FR/EN)</span></div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon"><i class="ri-file-pdf-2-line"></i></div>
+                            <span data-lang-key="tech5">Export PDF des Plans</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon"><i class="ri-user-smile-line"></i></div>
+                            <span data-lang-key="tech6">Personnalisation de l'Avatar</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-image">
+                    <!-- MODIFICATION FINALE : Lazy loading -->
+                    <img src="capture3.webp" alt="Technologies" class="app-screenshot" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- For Who Section -->
+        <section id="for-who" class="for-who animated">
+            <div class="container">
+                <h2 class="section-title" data-lang-key="for_who_title">Pour Qui ?</h2>
+                <div class="audience-cards">
+                    <div class="audience-card card">
+                        <div class="card-icon"><i class="ri-seedling-line"></i></div>
+                        <h3 class="card-title" data-lang-key="audience1_title">Débutants</h3>
+                        <p class="card-description" data-lang-key="audience1_desc">Vous débutez ? <span class="body">Body</span><span class="koncept">Koncept</span> vous guide pas à pas avec des programmes adaptés et des explications claires pour progresser en toute sécurité.</p>
+                    </div>
+                    <div class="audience-card card">
+                        <div class="card-icon"><i class="ri-run-line"></i></div>
+                        <h3 class="card-title" data-lang-key="audience2_title">Intermédiaires</h3>
+                        <p class="card-description" data-lang-key="audience2_desc">Vous cherchez à optimiser vos résultats ? Notre IA analyse vos performances et ajuste vos programmes pour franchir vos plateaux.</p>
+                    </div>
+                    <div class="audience-card card">
+                        <div class="card-icon"><i class="ri-award-line"></i></div>
+                        <h3 class="card-title" data-lang-key="audience3_title">Exigeants</h3>
+                        <p class="card-description" data-lang-key="audience3_desc">Athlètes et passionnés, <span class="body">Body</span><span class="koncept">Koncept</span> vous offre des stratégies avancées basées sur les dernières recherches scientifiques.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-logo-text"><span class="body">Body</span><span class="koncept">Koncept</span></div>
+                    <p data-lang-key="footer_subtitle">Votre Coach Sportif Intelligent</p>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:contact@alexkoncept.com">contact@alexkoncept.com</a>
+                    <!-- MODIFICATION FINALE : Lien transformé en bouton -->
+                    <a href="https://bodykonceptbyalexkoncept.netlify.app/" target="_blank" class="cta-button" data-lang-key="footer_link_app">Accéder à l'application</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-lang-key="footer_copyright">© 2025 <span class="body">Body</span><span class="koncept">Koncept</span> - Créé par Alex Koncept. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // --- TEXT TRANSLATIONS OBJECT ---
+        const translations = {
+            fr: {
+                nav_home: "Accueil",
+                nav_concept: "Concept",
+                nav_features: "Fonctionnalités",
+                nav_technologies: "Technologies",
+                nav_for_who: "Pour Qui",
+                hero_title: '<span class="body">Body</span><span class="koncept">Koncept</span><br>Votre Coach Sportif Intelligent',
+                hero_subtitle: "Découvrez l'entraînement personnalisé par intelligence artificielle qui s'adapte parfaitement à vos objectifs, votre morphologie et votre mode de vie.",
+                // MODIFICATION FINALE : Texte du bouton
+                hero_cta: "Accéder à l'application",
+                concept_title: "Notre Concept",
+                concept_philosophy: '"Chaque individu est unique. Son entraînement et sa nutrition doivent l\'être aussi."',
+                concept_description: '<span class="body">Body</span><span class="koncept">Koncept</span> est né d\'une vision simple mais révolutionnaire : utiliser l\'intelligence artificielle pour créer des programmes d\'entraînement et de nutrition véritablement personnalisés. Notre technologie analyse vos caractéristiques uniques pour vous offrir un accompagnement sur mesure, comme si vous aviez un coach personnel disponible 24/7.',
+                features_title: "Fonctionnalités",
+                feature1_title: "Analyse d'Objectifs Détaillée",
+                feature1_desc: "Calcul précis de votre TDEE et analyse de votre morphotype pour des recommandations parfaitement adaptées.",
+                feature2_title: "Plans Nutritionnels Sur-Mesure",
+                feature2_desc: "Générateur intelligent de plans alimentaires qui s'adapte à vos préférences, allergies et objectifs.",
+                feature3_title: "Programmes d'Entraînement Intelligents",
+                feature3_desc: "Créez des programmes optimisés selon votre niveau, équipement disponible et objectifs, avec progression intelligente.",
+                feature4_title: "Suivi Visuel des Progrès",
+                feature4_desc: "Visualisez votre évolution grâce à des graphiques intuitifs et des comparaisons avant/après pour rester motivé.",
+                feature5_title: "Boîte à Outils Sportives",
+                feature5_desc: "Accédez à une collection complète de calculatrices sportives pour optimiser votre alimentation et récupération.",
+                feature6_title: "Coach IA Conversationnel 24/7",
+                feature6_desc: "Posez vos questions à tout moment à notre coach IA qui vous répond instantanément avec des conseils personnalisés.",
+                tech_title: "Technologies",
+                tech_desc: '<span class="body">Body</span><span class="koncept">Koncept</span> utilise les technologies les plus modernes pour vous offrir une expérience utilisateur fluide et performante.',
+                tech1: "React + Vite",
+                tech2: "Progressive Web App",
+                tech3: "Thèmes Clair/Sombre",
+                tech4: "Multilingue (FR/EN)",
+                tech5: "Export PDF (Plans/Nutrition)",
+                tech6: "Personnalisation de l'Avatar",
+                for_who_title: "Pour Qui ?",
+                audience1_title: "Débutants",
+                audience1_desc: 'Vous débutez ? <span class="body">Body</span><span class="koncept">Koncept</span> vous guide pas à pas avec des programmes adaptés et des explications claires pour progresser en toute sécurité.',
+                audience2_title: "Intermédiaires",
+                audience2_desc: 'Vous cherchez à optimiser vos résultats ? Notre IA analyse vos performances et ajuste vos programmes pour franchir vos plateaux.',
+                audience3_title: "Exigeants",
+                audience3_desc: 'Athlètes et passionnés, <span class="body">Body</span><span class="koncept">Koncept</span> vous offre des stratégies avancées basées sur les dernières recherches scientifiques.',
+                footer_subtitle: "Votre Coach Sportif Intelligent",
+                // MODIFICATION FINALE : Texte du bouton
+                footer_link_app: "Accéder à l'application",
+                footer_copyright: '© 2025 <span class="body">Body</span><span class="koncept">Koncept</span> - Créé par Alex Koncept. Tous droits réservés.'
+            },
+            en: {
+                nav_home: "Home",
+                nav_concept: "Concept",
+                nav_features: "Features",
+                nav_technologies: "Technologies",
+                nav_for_who: "For Who",
+                hero_title: '<span class="body">Body</span><span class="koncept">Koncept</span><br>Your Intelligent Fitness Coach',
+                hero_subtitle: "Discover AI-powered personalized training that perfectly adapts to your goals, body type, and lifestyle.",
+                // MODIFICATION FINALE : Texte du bouton
+                hero_cta: "Access the App",
+                concept_title: "Our Concept",
+                concept_philosophy: '"Every individual is unique. Their training and nutrition should be too."',
+                concept_description: '<span class="body">Body</span><span class="koncept">Koncept</span> was born from a simple yet revolutionary vision: using artificial intelligence to create truly personalized training and nutrition programs. Our technology analyzes your unique characteristics to offer you tailored support, as if you had a personal coach available 24/7.',
+                features_title: "Features",
+                feature1_title: "Detailed Goal Analysis",
+                feature1_desc: "Precise calculation of your TDEE and analysis of your body type for perfectly adapted recommendations.",
+                feature2_title: "Customized Meal Plans",
+                feature2_desc: "Smart meal plan generator that adapts to your preferences, allergies, and specific goals.",
+                feature3_title: "Intelligent Workout Programs",
+                feature3_desc: "Create optimized workout programs based on your level, available equipment, and goals, with intelligent progression.",
+                feature4_title: "Visual Progress Tracking",
+                feature4_desc: "Visualize your evolution with intuitive charts and before/after comparisons to stay motivated.",
+                feature5_title: "Fitness Toolbox",
+                feature5_desc: "Access a complete collection of sports calculators to optimize your nutrition and recovery.",
+                feature6_title: "24/7 Conversational AI Coach",
+                feature6_desc: "Ask our AI coach your questions at any time for instant, personalized advice.",
+                tech_title: "Technologies",
+                tech_desc: '<span class="body">Body</span><span class="koncept">Koncept</span> uses the most modern technologies to offer you a fluid and high-performance user experience.',
+                tech1: "React + Vite",
+                tech2: "Progressive Web App",
+                tech3: "Light/Dark Themes",
+                tech4: "Multilingual (FR/EN)",
+                tech5: "PDF Export (Plans/Nutrition)",
+                tech6: "Avatar Customization",
+                for_who_title: "Who Is It For?",
+                audience1_title: "Beginners",
+                audience1_desc: 'Just starting your fitness journey? <span class="body">Body</span><span class="koncept">Koncept</span> guides you step-by-step with programs adapted to your level and clear explanations to progress safely.',
+                audience2_title: "Intermediates",
+                audience2_desc: 'Looking to optimize your results? Our AI analyzes your performance and adjusts your programs to break through plateaus.',
+                audience3_title: "High-Achievers",
+                audience3_desc: 'Athletes and enthusiasts, <span class="body">Body</span><span class="koncept">Koncept</span> offers you advanced strategies based on the latest scientific research.',
+                footer_subtitle: "Your Intelligent Fitness Coach",
+                // MODIFICATION FINALE : Texte du bouton
+                footer_link_app: "Access the App",
+                footer_copyright: '© 2025 <span class="body">Body</span><span class="koncept">Koncept</span> - Created by Alex Koncept. All rights reserved.'
+            }
+        };
+
+        const themeSwitcher = document.getElementById('theme-switcher');
+        const langSelector = document.getElementById('lang-selector');
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        // --- THEME SWITCHER LOGIC ---
+        const applyTheme = (theme) => {
+            document.body.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        };
+        themeSwitcher.addEventListener('click', () => {
+            const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+        });
+        
+        // --- LANGUAGE SWITCHER LOGIC ---
+        const applyLanguage = (lang) => {
+            document.documentElement.lang = lang;
+            langSelector.value = lang;
+            const langData = translations[lang];
+            document.querySelectorAll('[data-lang-key]').forEach(elem => {
+                const key = elem.getAttribute('data-lang-key');
+                if(langData[key]) {
+                    elem.innerHTML = langData[key];
+                }
+            });
+            localStorage.setItem('language', lang);
+        };
+        langSelector.addEventListener('change', (e) => applyLanguage(e.target.value));
+
+        // --- HAMBURGER MENU LOGIC ---
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            // Change icon
+            const icon = hamburger.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('ri-menu-line');
+                icon.classList.add('ri-close-line');
+            } else {
+                icon.classList.remove('ri-close-line');
+                icon.classList.add('ri-menu-line');
+            }
+        });
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.querySelector('i').classList.remove('ri-close-line');
+                hamburger.querySelector('i').classList.add('ri-menu-line');
+            });
+        });
+
+        // --- INTERSECTION OBSERVER FOR ANIMATIONS ---
+        const animatedElements = document.querySelectorAll('.animated');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        animatedElements.forEach(el => observer.observe(el));
+        
+        // --- INITIAL LOAD ---
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        const currentLanguage = localStorage.getItem('language') || 'fr';
+        applyTheme(currentTheme);
+        applyLanguage(currentLanguage);
+    });
+    </script>
+</body>
+</html>
