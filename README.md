@@ -2,7 +2,7 @@
 
 Descriptif moderne et responsive pour l'application de coaching sportif Body Koncept.
 
-**[➡️ Vitrine en ligne ](https://alexkoncept.github.io/Body-Koncept-Showcase/)**
+**[➡️ Vitrine en ligne ](https://alexkoncept.github.io/BodyKoncept-Showcase/)**
 
 
 ## ✨ Fonctionnalités
