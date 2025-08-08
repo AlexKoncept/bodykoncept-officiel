@@ -4,19 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Body Koncept - Votre Coach Sportif Intelligent</title>
-
-    <!-- MODIFICATION FINALE : Méta-tags pour le partage sur les réseaux sociaux -->
     <meta property="og:title" content="Body Koncept - Votre Coach Sportif Intelligent">
     <meta property="og:description" content="Découvrez l'entraînement personnalisé par IA qui s'adapte à vos objectifs, votre morphologie et votre mode de vie.">
-    <!-- Remplacez par l'URL de l'image que vous voulez voir apparaître lors du partage -->
     <meta property="og:image" content="URL_VERS_VOTRE_IMAGE_DE_PARTAGE.webp"> 
-    <!-- Remplacez par l'URL de votre site une fois en ligne -->
     <meta property="og:url" content="URL_DE_VOTRE_SITE_EN_LIGNE">
     <meta property="og:type" content="website">
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
     <style>
-        /* Définition des polices */
         @font-face {
             font-family: 'Inter';
             src: url('fonts/Inter-Regular.ttf') format('truetype');
@@ -33,7 +28,6 @@
             font-weight: bold;
         }
 
-        /* --- Variables de Couleur --- */
         :root {
             --primary-cyan: #00e6ff;
             --dark-bg: #121212;
@@ -49,7 +43,6 @@
             --border-light: rgba(0, 0, 0, 0.1);
         }
 
-        /* --- Styles de base --- */
         * {
             margin: 0;
             padding: 0;
@@ -76,8 +69,6 @@
         .highlight { color: var(--primary-cyan); }
         .koncept { color: var(--primary-cyan); }
         .body { transition: color 0.3s ease; }
-
-        /* --- Gestion des Thèmes --- */
         
         body {
             background-color: var(--dark-bg);
@@ -113,8 +104,6 @@
         body[data-theme="light"] .hamburger { color: var(--light-text-dark); }
         body[data-theme="light"] nav ul.active { background-color: var(--light-bg); }
 
-
-        /* --- Header --- */
         header {
             position: fixed;
             top: 0;
@@ -136,7 +125,6 @@
         nav a { text-decoration: none; font-size: 18px; font-weight: 500; transition: color 0.3s ease; }
         .header-actions { display: flex; align-items: center; gap: 20px; }
 
-        /* --- Theme Toggle Switch --- */
         .theme-switch { display: flex; align-items: center; gap: 8px; cursor: pointer; }
         .theme-switch i { font-size: 22px; transition: color 0.3s ease, opacity 0.3s ease; }
         .theme-switch-toggle { position: relative; width: 50px; height: 26px; background: #333; border-radius: 13px; transition: background 0.3s ease; }
@@ -151,11 +139,8 @@
         body[data-theme="light"] .theme-switch .ri-moon-line { opacity: 0.5; color: inherit; }
         body[data-theme="light"] .theme-switch .ri-sun-line { opacity: 1; color: var(--primary-cyan); }
 
-
-        /* --- Language Selector --- */
         .lang-select { border-radius: 5px; padding: 5px; font-size: 16px; cursor: pointer; }
         
-        /* --- Hero Section --- */
         .hero { padding: 180px 0 100px; }
         .hero-content { 
             display: flex; 
@@ -196,15 +181,12 @@
             transform: rotateY(0) rotateX(0) translateY(-10px) scale(1.05);
         }
         
-        /* --- Sections Communes --- */
         section { padding: 120px 0; overflow: hidden; }
         .section-title { font-weight: bold; font-size: 48px; margin-bottom: 60px; text-align: center; }
         
-        /* --- Concept Section --- */
         .concept-philosophy { font-size: 32px; font-weight: 500; padding: 30px; border-radius: 15px; text-align: center; max-width: 1000px; margin: 0 auto 40px; }
         .concept-description { font-size: 20px; max-width: 800px; margin: 0 auto; text-align: center; }
         
-        /* --- Features Section --- */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -215,7 +197,6 @@
         .card-icon { font-size: 36px; color: var(--primary-cyan); margin-bottom: 20px; }
         .card-title { font-size: 24px; font-weight: bold; margin-bottom: 15px; }
 
-        /* --- Technologies Section --- */
         .tech-container { 
             display: flex; 
             justify-content: space-between; 
@@ -257,11 +238,9 @@
         .tech-item { display: flex; align-items: center; gap: 15px; }
         .tech-item-icon { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-cyan) 0%, #0099cc 100%); display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--dark-bg); flex-shrink: 0; }
         
-        /* --- For Who Section --- */
         .audience-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .audience-card { text-align: center; }
 
-        /* --- Footer --- */
         footer { padding: 80px 0 40px; }
         .footer-content { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; flex-wrap: wrap; gap: 30px; }
         .footer-logo-text { font-weight: bold; font-size: 32px; }
@@ -277,21 +256,17 @@
         .footer-links a:first-child:hover {
             color: var(--primary-cyan);
         }
-        /* MODIFICATION : Le bouton CTA réutilise les styles existants, pas besoin de règle spécifique */
         body[data-theme="light"] .footer-links a:first-child {
             color: var(--light-text-gray);
         }
 
         .footer-bottom { text-align: center; padding-top: 40px; }
 
-        /* --- Hamburger Menu for Mobile --- */
         .hamburger { display: none; font-size: 30px; cursor: pointer; background: none; border: none; }
         
-        /* --- Animations --- */
         .animated { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
         .animated.is-visible { opacity: 1; transform: translateY(0); }
 
-        /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 1024px) {
             .container { padding: 0 40px; }
             .hero { padding: 140px 0 80px; text-align: center; }
@@ -351,7 +326,6 @@
     </style>
 </head>
 <body data-theme="dark">
-    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
@@ -385,7 +359,6 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section id="home" class="hero animated">
             <div class="container hero-content">
                 <div class="hero-text">
@@ -396,7 +369,6 @@
                     <p class="hero-subtitle" data-lang-key="hero_subtitle">
                         Découvrez l'entraînement personnalisé par intelligence artificielle qui s'adapte parfaitement à vos objectifs, votre morphologie et votre mode de vie.
                     </p>
-                    <!-- MODIFICATION FINALE : Texte du bouton -->
                     <a href="https://bodykonceptbyalexkoncept.netlify.app/" class="cta-button" data-lang-key="hero_cta">Accéder à l'application</a>
                 </div>
                 <div class="hero-image">
@@ -405,7 +377,6 @@
             </div>
         </section>
 
-        <!-- Concept Section -->
         <section id="concept" class="concept animated">
             <div class="container">
                 <h2 class="section-title" data-lang-key="concept_title">Notre Concept</h2>
@@ -420,7 +391,6 @@
             </div>
         </section>
 
-        <!-- Features Section -->
         <section id="features" class="features animated">
             <div class="container">
                 <h2 class="section-title" data-lang-key="features_title">Fonctionnalités</h2>
@@ -459,11 +429,9 @@
             </div>
         </section>
 
-        <!-- Technologies Section -->
         <section id="technologies" class="technologies animated">
             <div class="container tech-container">
                 <div class="tech-image">
-                    <!-- MODIFICATION FINALE : Lazy loading -->
                     <img src="capture1.webp" alt="Technologies" class="tech-screenshot" loading="lazy">
                 </div>
                 <div class="tech-content">
@@ -487,13 +455,11 @@
                     </div>
                 </div>
                 <div class="tech-image">
-                    <!-- MODIFICATION FINALE : Lazy loading -->
                     <img src="capture3.webp" alt="Technologies" class="app-screenshot" loading="lazy">
                 </div>
             </div>
         </section>
 
-        <!-- For Who Section -->
         <section id="for-who" class="for-who animated">
             <div class="container">
                 <h2 class="section-title" data-lang-key="for_who_title">Pour Qui ?</h2>
@@ -518,7 +484,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -528,7 +493,6 @@
                 </div>
                 <div class="footer-links">
                     <a href="mailto:contact@alexkoncept.com">contact@alexkoncept.com</a>
-                    <!-- MODIFICATION FINALE : Lien transformé en bouton -->
                     <a href="https://bodykonceptbyalexkoncept.netlify.app/" target="_blank" class="cta-button" data-lang-key="footer_link_app">Accéder à l'application</a>
                 </div>
             </div>
@@ -541,7 +505,6 @@
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         
-        // --- TEXT TRANSLATIONS OBJECT ---
         const translations = {
             fr: {
                 nav_home: "Accueil",
@@ -551,7 +514,6 @@
                 nav_for_who: "Pour Qui",
                 hero_title: '<span class="body">Body</span><span class="koncept">Koncept</span><br>Votre Coach Sportif Intelligent',
                 hero_subtitle: "Découvrez l'entraînement personnalisé par intelligence artificielle qui s'adapte parfaitement à vos objectifs, votre morphologie et votre mode de vie.",
-                // MODIFICATION FINALE : Texte du bouton
                 hero_cta: "Accéder à l'application",
                 concept_title: "Notre Concept",
                 concept_philosophy: '"Chaque individu est unique. Son entraînement et sa nutrition doivent l\'être aussi."',
@@ -585,7 +547,6 @@
                 audience3_title: "Exigeants",
                 audience3_desc: 'Athlètes et passionnés, <span class="body">Body</span><span class="koncept">Koncept</span> vous offre des stratégies avancées basées sur les dernières recherches scientifiques.',
                 footer_subtitle: "Votre Coach Sportif Intelligent",
-                // MODIFICATION FINALE : Texte du bouton
                 footer_link_app: "Accéder à l'application",
                 footer_copyright: '© 2025 <span class="body">Body</span><span class="koncept">Koncept</span> - Créé par Alex Koncept. Tous droits réservés.'
             },
@@ -597,7 +558,6 @@
                 nav_for_who: "For Who",
                 hero_title: '<span class="body">Body</span><span class="koncept">Koncept</span><br>Your Intelligent Fitness Coach',
                 hero_subtitle: "Discover AI-powered personalized training that perfectly adapts to your goals, body type, and lifestyle.",
-                // MODIFICATION FINALE : Texte du bouton
                 hero_cta: "Access the App",
                 concept_title: "Our Concept",
                 concept_philosophy: '"Every individual is unique. Their training and nutrition should be too."',
@@ -631,7 +591,6 @@
                 audience3_title: "High-Achievers",
                 audience3_desc: 'Athletes and enthusiasts, <span class="body">Body</span><span class="koncept">Koncept</span> offers you advanced strategies based on the latest scientific research.',
                 footer_subtitle: "Your Intelligent Fitness Coach",
-                // MODIFICATION FINALE : Texte du bouton
                 footer_link_app: "Access the App",
                 footer_copyright: '© 2025 <span class="body">Body</span><span class="koncept">Koncept</span> - Created by Alex Koncept. All rights reserved.'
             }
@@ -642,7 +601,6 @@
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
 
-        // --- THEME SWITCHER LOGIC ---
         const applyTheme = (theme) => {
             document.body.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
@@ -652,7 +610,6 @@
             applyTheme(newTheme);
         });
         
-        // --- LANGUAGE SWITCHER LOGIC ---
         const applyLanguage = (lang) => {
             document.documentElement.lang = lang;
             langSelector.value = lang;
@@ -667,10 +624,8 @@
         };
         langSelector.addEventListener('change', (e) => applyLanguage(e.target.value));
 
-        // --- HAMBURGER MENU LOGIC ---
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-            // Change icon
             const icon = hamburger.querySelector('i');
             if (navMenu.classList.contains('active')) {
                 icon.classList.remove('ri-menu-line');
@@ -688,7 +643,6 @@
             });
         });
 
-        // --- INTERSECTION OBSERVER FOR ANIMATIONS ---
         const animatedElements = document.querySelectorAll('.animated');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -700,7 +654,6 @@
         }, { threshold: 0.1 });
         animatedElements.forEach(el => observer.observe(el));
         
-        // --- INITIAL LOAD ---
         const currentTheme = localStorage.getItem('theme') || 'dark';
         const currentLanguage = localStorage.getItem('language') || 'fr';
         applyTheme(currentTheme);
