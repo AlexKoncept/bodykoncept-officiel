@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="manifest" href="site.webmanifest">
-    <meta name="apple-mobile-web-app-title" content="BodyKoncept-Website">
+<link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="BodyKoncept-Website" />
+<link rel="manifest" href="site.webmanifest" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Body Koncept - Votre Coach Sportif Intelligent</title>
+    <meta property="og:title" content="Body Koncept - Votre Coach Sportif Intelligent">
     <meta property="og:description" content="Découvrez l'entraînement personnalisé par IA qui s'adapte à vos objectifs, votre morphologie et votre mode de vie.">
     <meta property="og:image" content="logo.webp"> 
     <meta property="og:type" content="website">
-    
+
     <style>
         @font-face {
             font-family: 'Inter';
@@ -244,6 +245,45 @@
         .audience-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .audience-card { text-align: center; }
 
+        /* --- STYLES POUR LA NOUVELLE SECTION --- */
+        .install-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-top: 60px;
+        }
+        .video-container {
+            max-width: 300px; /* Taille idéale pour une vidéo mobile portrait */
+            margin: 0 auto;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            border: 1px solid var(--border-dark);
+        }
+        body[data-theme="light"] .video-container {
+            border: 1px solid var(--border-light);
+        }
+        .tutorial-video {
+            width: 100%;
+            display: block; /* Évite un petit espace en dessous */
+        }
+        .benefits-list {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .benefits-list p {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .benefits-list .card-icon {
+            margin-bottom: 0;
+            font-size: 28px;
+        }
+
         footer { padding: 80px 0 40px; }
         .footer-content { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; flex-wrap: wrap; gap: 30px; }
         .footer-logo-text { font-weight: bold; font-size: 32px; }
@@ -322,7 +362,7 @@
             .footer-content { flex-direction: column; text-align: center; }
             .footer-links { justify-content: center; }
 
-            .features-grid, .audience-cards, .tech-list {
+            .features-grid, .audience-cards, .tech-list, .install-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -362,6 +402,7 @@
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section id="home" class="hero animated">
             <div class="container hero-content">
                 <div class="hero-text">
@@ -380,6 +421,7 @@
             </div>
         </section>
 
+        <!-- Concept Section -->
         <section id="concept" class="concept animated">
             <div class="container">
                 <h2 class="section-title" data-lang-key="concept_title">Notre Concept</h2>
@@ -394,6 +436,7 @@
             </div>
         </section>
 
+        <!-- Features Section -->
         <section id="features" class="features animated">
             <div class="container">
                 <h2 class="section-title" data-lang-key="features_title">Fonctionnalités</h2>
@@ -432,6 +475,7 @@
             </div>
         </section>
 
+        <!-- Technologies Section -->
         <section id="technologies" class="technologies animated">
             <div class="container tech-container">
                 <div class="tech-image">
@@ -463,6 +507,7 @@
             </div>
         </section>
 
+        <!-- For Who Section -->
         <section id="for-who" class="for-who animated">
             <div class="container">
                 <h2 class="section-title" data-lang-key="for_who_title">Pour Qui ?</h2>
@@ -485,6 +530,40 @@
                 </div>
             </div>
         </section>
+        
+        <!-- PWA Install Section -->
+        <section id="install-app" class="install-app animated">
+            <div class="container">
+                <h2 class="section-title" data-lang-key="install_title">À portée de main</h2>
+                <p class="concept-description" data-lang-key="install_subtitle">
+                    Ajoutez Body Koncept à votre écran d'accueil pour un accès instantané, comme une véritable application.
+                </p>
+                <div class="install-grid">
+                    <div class="card">
+                        <h3 class="card-title" data-lang-key="install_video_title">Tutoriel d'Installation</h3>
+                        <div class="video-container">
+                            <video autoplay loop muted playsinline class="tutorial-video">
+                                <source src="PWA_Installation.webm" type="video/webm">
+                                Désolé, votre navigateur ne supporte pas les vidéos.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title" data-lang-key="install_benefits_title">Les Avantages</h3>
+                        <picture>
+                            <source srcset="PWA_Installation.webp" type="image/webp">
+                            <img src="PWA_Installation.webp" alt="Icône de l'application Body Koncept sur un écran d'accueil" style="width:100%; border-radius:10px; margin-top: 20px;">
+                         </picture>
+                        <div class="benefits-list">
+                            <p><span class="card-icon"><i class="ri-rocket-line"></i></span><span data-lang-key="benefit1">Accès ultra-rapide depuis votre écran d'accueil.</span></p>
+                            <p><span class="card-icon"><i class="ri-wifi-off-line"></i></span><span data-lang-key="benefit2">Fonctionne même avec une connexion faible ou inexistante.</span></p>
+                            <p><span class="card-icon"><i class="ri-notification-3-line"></i></span><span data-lang-key="benefit3">Notifications et mises à jour en temps réel.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer>
@@ -549,6 +628,13 @@
                 audience2_desc: 'Vous cherchez à optimiser vos résultats ? Notre IA analyse vos performances et ajuste vos programmes pour franchir vos plateaux.',
                 audience3_title: "Exigeants",
                 audience3_desc: 'Athlètes et passionnés, <span class="body">Body</span><span class="koncept">Koncept</span> vous offre des stratégies avancées basées sur les dernières recherches scientifiques.',
+                install_title: "À portée de main",
+                install_subtitle: "Ajoutez Body Koncept à votre écran d'accueil pour un accès instantané, comme une véritable application.",
+                install_video_title: "Tutoriel d'Installation",
+                install_benefits_title: "Les Avantages",
+                benefit1: "Accès ultra-rapide depuis votre écran d'accueil.",
+                benefit2: "Fonctionne même avec une connexion faible ou inexistante.",
+                benefit3: "Notifications et mises à jour en temps réel.",
                 footer_subtitle: "Votre Coach Sportif Intelligent",
                 footer_link_app: "Accéder à l'application",
                 footer_copyright: '© 2025 <span class="body">Body</span><span class="koncept">Koncept</span> - Créé par Alex Koncept. Tous droits réservés.'
@@ -593,6 +679,13 @@
                 audience2_desc: 'Looking to optimize your results? Our AI analyzes your performance and adjusts your programs to break through plateaus.',
                 audience3_title: "High-Achievers",
                 audience3_desc: 'Athletes and enthusiasts, <span class="body">Body</span><span class="koncept">Koncept</span> offers you advanced strategies based on the latest scientific research.',
+                install_title: "At your fingertips",
+                install_subtitle: "Add Body Koncept to your home screen for instant access, just like a real application.",
+                install_video_title: "Installation Tutorial",
+                install_benefits_title: "The Benefits",
+                benefit1: "Lightning-fast access from your home screen.",
+                benefit2: "Works even with a weak or non-existent connection.",
+                benefit3: "Real-time notifications and updates.",
                 footer_subtitle: "Your Intelligent Fitness Coach",
                 footer_link_app: "Access the App",
                 footer_copyright: '© 2025 <span class="body">Body</span><span class="koncept">Koncept</span> - Created by Alex Koncept. All rights reserved.'
