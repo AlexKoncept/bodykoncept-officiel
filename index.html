@@ -12,11 +12,10 @@
     <title>Body Koncept - Votre Coach Sportif Intelligent</title>
     <meta property="og:title" content="Body Koncept - Votre Coach Sportif Intelligent">
     <meta property="og:description" content="Découvrez l'entraînement personnalisé par IA qui s'adapte à vos objectifs, votre morphologie et votre mode de vie.">
-    <meta property="og:image" content="logo.webp">
+    <meta property="og:image" content="logo.webp"> 
     <meta property="og:type" content="website">
 
     <style>
-        /* ... (Votre CSS reste inchangé) ... */
         @font-face {
             font-family: 'Inter';
             src: url('fonts/Inter-Regular.ttf') format('truetype');
@@ -369,8 +368,7 @@
         }
     </style>
 </head>
-<!-- MODIFICATION 1 : Définir le thème par défaut sur "light" -->
-<body data-theme="light">
+<body data-theme="dark">
     <header>
         <div class="container header-container">
             <div class="logo">
@@ -404,7 +402,7 @@
     </header>
 
     <main>
-        <!-- ... (Le contenu de votre <main> reste inchangé) ... -->
+        <!-- Hero Section -->
         <section id="home" class="hero animated">
             <div class="container hero-content">
                 <div class="hero-text">
@@ -565,17 +563,133 @@
                 </div>
             </div>
         </section>
+
     </main>
 
     <footer>
-        <!-- ... (Le contenu de votre <footer> reste inchangé) ... -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-logo-text"><span class="body">Body</span><span class="koncept">Koncept</span></div>
+                    <p data-lang-key="footer_subtitle">Votre Coach Sportif Intelligent</p>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:contact@alexkoncept.com">contact@alexkoncept.com</a>
+                    <a href="https://bodykonceptbyalexkoncept.netlify.app/" target="_blank" class="cta-button" data-lang-key="footer_link_app">Accéder à l'application</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-lang-key="footer_copyright">© 2025 <span class="body">Body</span><span class="koncept">Koncept</span> - Créé par Alex Koncept. Tous droits réservés.</p>
+            </div>
+        </div>
     </footer>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         
         const translations = {
-            // ... (Vos traductions restent inchangées) ...
+            fr: {
+                nav_home: "Accueil",
+                nav_concept: "Concept",
+                nav_features: "Fonctionnalités",
+                nav_technologies: "Technologies",
+                nav_for_who: "Pour Qui",
+                hero_title: '<span class="body">Body</span><span class="koncept">Koncept</span><br>Votre Coach Sportif Intelligent',
+                hero_subtitle: "Découvrez l'entraînement personnalisé par intelligence artificielle qui s'adapte parfaitement à vos objectifs, votre morphologie et votre mode de vie.",
+                hero_cta: "Accéder à l'application",
+                concept_title: "Notre Concept",
+                concept_philosophy: '"Chaque individu est unique. Son entraînement et sa nutrition doivent l\'être aussi."',
+                concept_description: '<span class="body">Body</span><span class="koncept">Koncept</span> est né d\'une vision simple mais révolutionnaire : utiliser l\'intelligence artificielle pour créer des programmes d\'entraînement et de nutrition véritablement personnalisés. Notre technologie analyse vos caractéristiques uniques pour vous offrir un accompagnement sur mesure, comme si vous aviez un coach personnel disponible 24/7.',
+                features_title: "Fonctionnalités",
+                feature1_title: "Analyse d'Objectifs Détaillée",
+                feature1_desc: "Calcul précis de votre TDEE et analyse de votre morphotype pour des recommandations parfaitement adaptées.",
+                feature2_title: "Plans Nutritionnels Sur-Mesure",
+                feature2_desc: "Générateur intelligent de plans alimentaires qui s'adapte à vos préférences, allergies et objectifs.",
+                feature3_title: "Programmes d'Entraînement Intelligents",
+                feature3_desc: "Créez des programmes optimisés selon votre niveau, équipement disponible et objectifs, avec progression intelligente.",
+                feature4_title: "Suivi Visuel des Progrès",
+                feature4_desc: "Visualisez votre évolution grâce à des graphiques intuitifs et des comparaisons avant/après pour rester motivé.",
+                feature5_title: "Boîte à Outils Sportives",
+                feature5_desc: "Accédez à une collection complète de calculatrices sportives pour optimiser votre alimentation et récupération.",
+                feature6_title: "Coach IA Conversationnel 24/7",
+                feature6_desc: "Posez vos questions à tout moment à notre coach IA qui vous répond instantanément avec des conseils personnalisés.",
+                tech_title: "Technologies",
+                tech_desc: '<span class="body">Body</span><span class="koncept">Koncept</span> utilise les technologies les plus modernes pour vous offrir une expérience utilisateur fluide et performante.',
+                tech1: "React + Vite",
+                tech2: "Progressive Web App",
+                tech3: "Thèmes Clair/Sombre",
+                tech4: "Multilingue (FR/EN)",
+                tech5: "Export PDF (Plans/Nutrition)",
+                tech6: "Personnalisation de l'Avatar",
+                for_who_title: "Pour Qui ?",
+                audience1_title: "Débutants",
+                audience1_desc: 'Vous débutez ? <span class="body">Body</span><span class="koncept">Koncept</span> vous guide pas à pas avec des programmes adaptés et des explications claires pour progresser en toute sécurité.',
+                audience2_title: "Intermédiaires",
+                audience2_desc: 'Vous cherchez à optimiser vos résultats ? Notre IA analyse vos performances et ajuste vos programmes pour franchir vos plateaux.',
+                audience3_title: "Exigeants",
+                audience3_desc: 'Athlètes et passionnés, <span class="body">Body</span><span class="koncept">Koncept</span> vous offre des stratégies avancées basées sur les dernières recherches scientifiques.',
+                install_title: "À portée de main",
+                install_subtitle: "Ajoutez Body Koncept à votre écran d'accueil pour un accès instantané, comme une véritable application.",
+                install_video_title: "Tutoriel d'Installation",
+                install_benefits_title: "Les Avantages",
+                benefit1: "Accès ultra-rapide depuis votre écran d'accueil.",
+                benefit2: "Fonctionne même avec une connexion faible ou inexistante.",
+                benefit3: "Notifications et mises à jour en temps réel.",
+                footer_subtitle: "Votre Coach Sportif Intelligent",
+                footer_link_app: "Accéder à l'application",
+                footer_copyright: '© 2025 <span class="body">Body</span><span class="koncept">Koncept</span> - Créé par Alex Koncept. Tous droits réservés.'
+            },
+            en: {
+                nav_home: "Home",
+                nav_concept: "Concept",
+                nav_features: "Features",
+                nav_technologies: "Technologies",
+                nav_for_who: "For Who",
+                hero_title: '<span class="body">Body</span><span class="koncept">Koncept</span><br>Your Intelligent Fitness Coach',
+                hero_subtitle: "Discover AI-powered personalized training that perfectly adapts to your goals, body type, and lifestyle.",
+                hero_cta: "Access the App",
+                concept_title: "Our Concept",
+                concept_philosophy: '"Every individual is unique. Their training and nutrition should be too."',
+                concept_description: '<span class="body">Body</span><span class="koncept">Koncept</span> was born from a simple yet revolutionary vision: using artificial intelligence to create truly personalized training and nutrition programs. Our technology analyzes your unique characteristics to offer you tailored support, as if you had a personal coach available 24/7.',
+                features_title: "Features",
+                feature1_title: "Detailed Goal Analysis",
+                feature1_desc: "Precise calculation of your TDEE and analysis of your body type for perfectly adapted recommendations.",
+                feature2_title: "Customized Meal Plans",
+                feature2_desc: "Smart meal plan generator that adapts to your preferences, allergies, and specific goals.",
+                feature3_title: "Intelligent Workout Programs",
+                feature3_desc: "Create optimized workout programs based on your level, available equipment, and goals, with intelligent progression.",
+                feature4_title: "Visual Progress Tracking",
+                feature4_desc: "Visualize your evolution with intuitive charts and before/after comparisons to stay motivated.",
+                feature5_title: "Fitness Toolbox",
+                feature5_desc: "Access a complete collection of sports calculators to optimize your nutrition and recovery.",
+                feature6_title: "24/7 Conversational AI Coach",
+                feature6_desc: "Ask our AI coach your questions at any time for instant, personalized advice.",
+                tech_title: "Technologies",
+                tech_desc: '<span class="body">Body</span><span class="koncept">Koncept</span> uses the most modern technologies to offer you a fluid and high-performance user experience.',
+                tech1: "React + Vite",
+                tech2: "Progressive Web App",
+                tech3: "Light/Dark Themes",
+                tech4: "Multilingual (FR/EN)",
+                tech5: "PDF Export (Plans/Nutrition)",
+                tech6: "Avatar Customization",
+                for_who_title: "Who Is It For?",
+                audience1_title: "Beginners",
+                audience1_desc: 'Just starting your fitness journey? <span class="body">Body</span><span class="koncept">Koncept</span> guides you step-by-step with programs adapted to your level and clear explanations to progress safely.',
+                audience2_title: "Intermediates",
+                audience2_desc: 'Looking to optimize your results? Our AI analyzes your performance and adjusts your programs to break through plateaus.',
+                audience3_title: "High-Achievers",
+                audience3_desc: 'Athletes and enthusiasts, <span class="body">Body</span><span class="koncept">Koncept</span> offers you advanced strategies based on the latest scientific research.',
+                install_title: "At your fingertips",
+                install_subtitle: "Add Body Koncept to your home screen for instant access, just like a real application.",
+                install_video_title: "Installation Tutorial",
+                install_benefits_title: "The Benefits",
+                benefit1: "Lightning-fast access from your home screen.",
+                benefit2: "Works even with a weak or non-existent connection.",
+                benefit3: "Real-time notifications and updates.",
+                footer_subtitle: "Your Intelligent Fitness Coach",
+                footer_link_app: "Access the App",
+                footer_copyright: '© 2025 <span class="body">Body</span><span class="koncept">Koncept</span> - Created by Alex Koncept. All rights reserved.'
+            }
         };
 
         const themeSwitcher = document.getElementById('theme-switcher');
@@ -593,15 +707,50 @@
         });
         
         const applyLanguage = (lang) => {
-            // ... (Votre fonction applyLanguage reste inchangée) ...
+            document.documentElement.lang = lang;
+            langSelector.value = lang;
+            const langData = translations[lang];
+            document.querySelectorAll('[data-lang-key]').forEach(elem => {
+                const key = elem.getAttribute('data-lang-key');
+                if(langData[key]) {
+                    elem.innerHTML = langData[key];
+                }
+            });
+            localStorage.setItem('language', lang);
         };
         langSelector.addEventListener('change', (e) => applyLanguage(e.target.value));
 
-        // ... (Le reste de votre script pour le menu hamburger et les animations reste inchangé) ...
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('ri-menu-line');
+                icon.classList.add('ri-close-line');
+            } else {
+                icon.classList.remove('ri-close-line');
+                icon.classList.add('ri-menu-line');
+            }
+        });
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.querySelector('i').classList.remove('ri-close-line');
+                hamburger.querySelector('i').classList.add('ri-menu-line');
+            });
+        });
+
+        const animatedElements = document.querySelectorAll('.animated');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        animatedElements.forEach(el => observer.observe(el));
         
-        // MODIFICATION 2 : Définir le thème par défaut sur "light" dans le script
-        // Si aucun thème n'est en mémoire, 'light' sera utilisé.
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        const currentTheme = localStorage.getItem('theme') || 'dark';
         const currentLanguage = localStorage.getItem('language') || 'fr';
         applyTheme(currentTheme);
         applyLanguage(currentLanguage);
