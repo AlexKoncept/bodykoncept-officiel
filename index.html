@@ -368,7 +368,7 @@
         }
     </style>
 </head>
-<body data-theme="dark">
+<body data-theme="light">
     <header>
         <div class="container header-container">
             <div class="logo">
@@ -750,7 +750,7 @@
         }, { threshold: 0.1 });
         animatedElements.forEach(el => observer.observe(el));
         
-        const currentTheme = localStorage.getItem('theme') || 'dark';
+        const currentTheme = localStorage.getItem('theme') || 'light';
         const currentLanguage = localStorage.getItem('language') || 'fr';
         applyTheme(currentTheme);
         applyLanguage(currentLanguage);
